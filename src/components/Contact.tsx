@@ -1,6 +1,6 @@
 import { type FormEvent, useState } from 'react'
 import { Mail, MapPin, Send } from 'lucide-react'
-import { GitHubIcon, LinkedInIcon } from './icons'
+import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from './icons'
 import { personal } from '../data/portfolio'
 import { ScrollReveal } from './ScrollReveal'
 
@@ -20,10 +20,11 @@ export function Contact() {
   }
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: personal.email, href: `mailto:${personal.email}` },
-    { icon: LinkedInIcon, label: 'LinkedIn', value: 'egafrandika', href: personal.linkedin },
-    { icon: GitHubIcon, label: 'GitHub', value: 'egafrandika', href: personal.github },
-    { icon: MapPin, label: 'Location', value: personal.location, href: undefined },
+    { icon: Mail, label: 'Email', value: personal.email, href: `mailto:${personal.email}`, external: false },
+    { icon: WhatsAppIcon, label: 'WhatsApp', value: personal.phone, href: personal.whatsappUrl, external: true },
+    { icon: LinkedInIcon, label: 'LinkedIn', value: 'egafrandika', href: personal.linkedin, external: true },
+    { icon: GitHubIcon, label: 'GitHub', value: 'egafrandika', href: personal.github, external: true },
+    { icon: MapPin, label: 'Location', value: personal.location, href: undefined, external: false },
   ]
 
   return (
@@ -44,7 +45,7 @@ export function Contact() {
         <div className="mt-12 grid gap-8 lg:grid-cols-5">
           <ScrollReveal delay={0.1} className="lg:col-span-2">
             <div className="flex flex-col gap-4">
-              {contactInfo.map(({ icon: Icon, label, value, href }) => (
+              {contactInfo.map(({ icon: Icon, label, value, href, external }) => (
                 <div key={label} className="card flex items-center gap-4 p-5">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <Icon size={20} />
@@ -54,8 +55,8 @@ export function Contact() {
                     {href ? (
                       <a
                         href={href}
-                        target={label !== 'Email' ? '_blank' : undefined}
-                        rel={label !== 'Email' ? 'noopener noreferrer' : undefined}
+                        target={external ? '_blank' : undefined}
+                        rel={external ? 'noopener noreferrer' : undefined}
                         className="text-sm font-medium text-text transition-colors hover:text-primary"
                       >
                         {value}

@@ -1,5 +1,5 @@
 import { Heart, Mail } from 'lucide-react'
-import { GitHubIcon, LinkedInIcon } from './icons'
+import { GitHubIcon, LinkedInIcon, WhatsAppIcon } from './icons'
 import { personal } from '../data/portfolio'
 
 export function Footer() {
@@ -25,13 +25,14 @@ export function Footer() {
           {[
             { href: personal.github, icon: GitHubIcon, label: 'GitHub' },
             { href: personal.linkedin, icon: LinkedInIcon, label: 'LinkedIn' },
+            { href: personal.whatsappUrl, icon: WhatsAppIcon, label: 'WhatsApp' },
             { href: `mailto:${personal.email}`, icon: Mail, label: 'Email' },
           ].map(({ href, icon: Icon, label }) => (
             <a
               key={label}
               href={href}
-              target={label !== 'Email' ? '_blank' : undefined}
-              rel={label !== 'Email' ? 'noopener noreferrer' : undefined}
+              target={label === 'Email' ? undefined : '_blank'}
+              rel={label === 'Email' ? undefined : 'noopener noreferrer'}
               className="social-link"
               aria-label={label}
             >

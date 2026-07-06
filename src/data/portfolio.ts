@@ -6,6 +6,8 @@ export const personal = {
   location: 'Bekasi, West Java, Indonesia',
   email: 'dikafran7@gmail.com',
   phone: '+62 858-0945-5280',
+  whatsapp: '+6285809455280',
+  whatsappUrl: 'https://wa.me/6285809455280',
   github: 'https://github.com/egafrandika',
   linkedin: 'https://www.linkedin.com/in/egafrandika/',
   initials: 'EF',

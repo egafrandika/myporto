@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import { GitHubIcon } from './icons'
+import { ProjectCarousel } from './ProjectCarousel'
 import { projects } from '../data/portfolio'
 import { ScrollReveal } from './ScrollReveal'
 
@@ -25,31 +26,12 @@ export function Projects() {
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
               >
-                <div
-                  className={`relative h-48 overflow-hidden bg-gradient-to-br ${project.gradient}`}
-                >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex flex-col items-center gap-3 opacity-60 transition-opacity group-hover:opacity-100">
-                      <div
-                        className="flex h-16 w-16 items-center justify-center rounded-2xl text-2xl font-bold text-white shadow-lg"
-                        style={{ backgroundColor: project.accent }}
-                      >
-                        {project.title.charAt(0)}
-                      </div>
-                      <div className="flex gap-2">
-                        {project.tech.slice(0, 3).map((t) => (
-                          <span
-                            key={t}
-                            className="rounded-md bg-background/20 px-2 py-1 text-xs text-text backdrop-blur-sm"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60" />
-                </div>
+                <ProjectCarousel
+                  images={project.images ?? []}
+                  title={project.title}
+                  accent={project.accent}
+                  gradient={project.gradient}
+                />
 
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-xl font-semibold text-text transition-colors group-hover:text-primary">

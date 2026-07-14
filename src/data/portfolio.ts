@@ -40,7 +40,19 @@ export const skills = {
   tools: ['Git', 'Phabricator', 'Vite', 'Webpack', 'Jest', 'Figma'],
 }
 
-export const projects = [
+export type Project = {
+  id: string
+  title: string
+  description: string
+  tech: string[]
+  github: string
+  demo: string
+  images?: string[]
+  gradient: string
+  accent: string
+}
+
+export const projects: Project[] = [
   {
     id: 'siconversi',
     title: 'siconversi',
@@ -49,6 +61,7 @@ export const projects = [
     tech: ['React', 'TypeScript', 'Netlify', 'PDF.js', 'Tailwind CSS'],
     github: 'https://github.com/egafrandika',
     demo: 'https://siconversi-app.netlify.app/',
+    images: ['/projects/siconversi-1.png', '/projects/siconversi-2.png'],
     gradient: 'from-blue-500/20 via-indigo-500/10 to-cyan-500/20',
     accent: '#06B6D4',
   },
@@ -60,6 +73,7 @@ export const projects = [
     tech: ['React', 'TypeScript', 'Netlify', 'Web Audio API', 'Tailwind CSS'],
     github: 'https://github.com/egafrandika',
     demo: 'https://idnchord.netlify.app/',
+    images: ['/projects/idnchord-1.png', '/projects/idnchord-2.png'],
     gradient: 'from-violet-500/20 via-purple-500/10 to-fuchsia-500/20',
     accent: '#8B5CF6',
   },
@@ -71,6 +85,7 @@ export const projects = [
     tech: ['Vue.js', 'TypeScript', 'Tailwind CSS', 'REST APIs'],
     github: 'https://github.com/egafrandika',
     demo: '#contact',
+    images: ['/projects/dashboard-1.png', '/projects/dashboard-2.png'],
     gradient: 'from-indigo-500/20 via-purple-500/10 to-cyan-500/20',
     accent: '#6366F1',
   },
@@ -82,6 +97,11 @@ export const projects = [
     tech: ['React.js', 'JavaScript', 'Sass', 'Performance Optimization'],
     github: 'https://github.com/egafrandika',
     demo: '#contact',
+    images: [
+      '/projects/corporate-1.png',
+      '/projects/corporate-2.png',
+      '/projects/corporate-3.png',
+    ],
     gradient: 'from-cyan-500/20 via-blue-500/10 to-indigo-500/20',
     accent: '#06B6D4',
   },
